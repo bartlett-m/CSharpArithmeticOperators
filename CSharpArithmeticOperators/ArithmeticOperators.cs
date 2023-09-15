@@ -8,9 +8,47 @@ namespace CSharpArithmeticOperators
 {
 	public class ArithmeticOperators
 	{
+		internal static int blocksize = 512;
+		public static double CalcCircleCircumference(double radius)
+		{
+			return Math.PI * 2 * radius;
+		}
 		public static double CalcCircleArea(double radius)
 		{
 			return Math.PI * Math.Pow(radius, 2); // User Math.Pow to raise a number to a power
+		}
+		public static bool IsDivisibleBy(int n1, int n2)
+		{
+			return (n1 % n2) == 0;
+		}
+		public static double CalcHypotenuse(double a, double b)
+		{
+			return (Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2)));
+		}
+		public static void CalcBookSharing()
+		{
+			Console.Write("Enter the number of students\n>");
+			int n_students = Convert.ToInt32(Console.ReadLine());
+			Console.Write("Enter the number of books\n>");
+			int n_books = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine($"Each student gets {n_books/n_students} book(s).  There will be {n_books % n_students} book(s) left over.");
+		}
+		public static int CalcNumBlocks(int n_KiB)
+		{
+			int n_blocks = (n_KiB*1024)/blocksize;
+			if ((n_KiB*1024)%blocksize != 0) {
+				n_blocks++;
+			}
+			return n_blocks;
+		}
+		public static void CalcSavings()
+		{
+			Console.Write("Enter the total amount of pocket money earned each week\n>");
+			decimal amount_earned = Convert.ToDecimal(Console.ReadLine());
+			Console.Write("Enter the percentage which you want to save each week\n>");
+			decimal percentage_saved_as_decimal = Convert.ToDecimal(Console.ReadLine())/100;
+			decimal amount_saved_per_week = amount_earned*percentage_saved_as_decimal;
+			Console.WriteLine($"Each week you will save {amount_saved_per_week}.  After a year, you will have {amount_saved_per_week*52}.");
 		}
 
 		public static void Division()
